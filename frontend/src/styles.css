@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    min-height: 100vh;
+}
+.cajitaHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(229, 255, 0);
+    height: 16vh;
+    border-bottom: 2px solid black;
+}
+.cajitaHeader h1{
+    margin-left: 2vw;
+}
+.cajitaHeader p {
+    /* padding-left: 2vw; */
+    font-size: 2vw;
+}
+.menu{
+    padding-left: 5vw;
+    margin-right: 2vw;
+}
+.menu nav {
+    display: flex;
+    justify-content: space-around;
+    width: 15vw;
+    background-color: rgb(30, 255, 0);
+    font-size: 2vw;
+}
+.letraRoja {
+    color: red;
+}
+.contenedorGeneral{
+    background-color: rgb(255, 177, 151);
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorGeneral div{
+    margin-top: 3vh;
+}
+.primero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./MYtineraryLogo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-color: lawngreen; */
+    height: 30vh;
+    width: 30vw;
+}
+.segundo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(202, 0, 252);
+    height: 30vh;
+    width: 20vw;
+}
+.tercero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 126, 105);
+    height: 30vh;
+    width: 20vw;
+    margin-bottom: 3vh;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    height: 8vh;
+    background-color: blue;
+}
