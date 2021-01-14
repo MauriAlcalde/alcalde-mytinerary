@@ -1,10 +1,11 @@
+import PrimerDiv from "./PrimerDivSection"
 import Nav from "./Nav"
 function Header (){
     return (
        <> 
          <header class ="cajitaHeader">
-            <h1>Aca iria el Avatar</h1>
-            <p>soy el Header</p>
+            <div class="avatar"></div>
+            <PrimerDiv/>
             <div class="menu"><Nav/></div>
          </header>
        </>

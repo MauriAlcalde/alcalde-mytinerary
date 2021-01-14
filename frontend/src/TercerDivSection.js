@@ -1,8 +1,10 @@
+import Carousel from "react-materialize"
 const TercerDiv = ()=>{
+   
     return (
-        <div class="tercero">
-            <h2>Aca va el Carrusel</h2>
-        </div>
+/*         <div class="tercero"> */
+        <Carousel/>
+        /* </div> */
     )
 }
 export default TercerDiv

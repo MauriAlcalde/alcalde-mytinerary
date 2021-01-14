@@ -1,3 +1,5 @@
+
+import "materialize-css/dist/css/materialize.min.css";
 import "./styles.css"
 import Header from "./Header"
 import Section from "./Section"
