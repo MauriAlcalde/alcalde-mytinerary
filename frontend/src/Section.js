@@ -1,11 +1,13 @@
-/* import PrimerDiv from "./PrimerDivSection" */
+import PrimerDiv from "./PrimerDivSection"
 import SegundoDiv from "./SegundoDivSection"
-import TercerDiv from "./TercerDivSection"
+import Example from "./TercerDivSection"
 function Section(){
     return (
         <div class="contenedorGeneral">
+            <PrimerDiv/>
             <SegundoDiv/>
-            <TercerDiv/>
+            <div className="container-fluid carrusel"><Example/></div>
+            
         </div>
     )
 }

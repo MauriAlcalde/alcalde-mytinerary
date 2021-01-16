@@ -1,7 +1,11 @@
 function SegundoDiv(){
     return (
         <div class="segundo">
-            <h2>Aca va algun texto de relleno</h2>
+            <div className="cajaimgGrande">
+                <div className="cajaimagen">
+                    <h2>Find your perfect trip, designed by insiders who know and love their cities</h2>
+                </div>
+            </div>
         </div>
     )
 }

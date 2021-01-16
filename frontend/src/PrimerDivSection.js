@@ -1,6 +1,7 @@
 function PrimerDiv(){
     return (
-        <div class="primero">
+        <div class="hero">
+            {/* <h2>Imagen Hero</h2> */}
         </div>
     )
 }
