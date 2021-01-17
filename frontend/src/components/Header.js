@@ -1,4 +1,4 @@
-import PrimerDiv from "./PrimerDivSection"
+/* import PrimerDiv from "./PrimerDivSection" */
 import Nav from "./Nav"
 function Header (){
     return (

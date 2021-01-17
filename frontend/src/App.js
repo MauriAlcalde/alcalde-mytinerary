@@ -1,15 +1,15 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "./styles.css"
-import Header from "./Header"
-import Section from "./Section"
-import Footer from "./Footer"
+import Header from "./components/Header"
+import Home from "./components/Section"
+/* import Footer from "./components/Footer" */
 function App() {
   return (
    <> 
     <Header/>
-    <Section/>
-    <Footer/>
+    <Home/>
+    {/* <Footer/> */}
    </> 
   );
 }
