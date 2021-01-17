@@ -7,6 +7,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import {Link} from "react-router-dom"
 
 const Example = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,12 @@ const Example = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Home</NavLink>
+              
+              <Link to="/">Home</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Cities</NavLink>
+              <Link to="/cities">Cities</Link>
+              
             </NavItem>
           </Nav>
         </Collapse>

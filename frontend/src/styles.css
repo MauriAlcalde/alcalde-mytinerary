@@ -48,7 +48,7 @@ body{
     justify-content: center;
     align-items: center;
     background-image: url("./assets/LogoIntinerary.jpg");
-    background-size: 40vh;
+    background-size: 44vh;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 0.8vh;
@@ -158,14 +158,26 @@ li a {
     color: rgba(221, 107, 87, 0.733)!important;
     border: 3px solid  rgba(221, 107, 87, 0.733);
     border-radius: 5px;
+   /*  width: 4vw !important; */
     margin-right: 2vw;
     font-weight: bold;
-    font-size: 1.15vw;     
+    font-size: 1.3vw;
+    font-family: 'Titillium Web', sans-serif;
+    /* font-family: 'Source Code Pro', monospace; */
+    padding-left: 0.8vw ; 
+    padding-right: 0.8vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    text-align: center;
+    text-decoration: none;    
 }
+
 li a:hover{
     border:3px solid rgba(103, 132, 194, 0.89);
     color: rgba(103, 132, 194, 0.89)!important;
     border-radius: 5px;
+    font-size: 1.3vw;
+    text-decoration: none;
 }
 .cajaDerecha{
     display: flex;
@@ -220,8 +232,9 @@ li a:hover{
     padding-bottom: 2vh;
     text-align: center;
     border-radius: 10px;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: bold;
+    font-size: 2.5vw !important;
     margin-top: 10vh !important;
 }
 .contenedorFrases {
@@ -299,4 +312,14 @@ li a:hover{
     font-size: 2vw;
     font-weight: bold;
     /* font-family: 'Source Code Pro', monospace */
+}
+.cajaCities{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    font-size: 5vw;
+    width: 100vw;
+    height: 50vh;
 }

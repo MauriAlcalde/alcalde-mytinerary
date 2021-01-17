@@ -3,12 +3,12 @@ import Nav from "./Nav"
 function Header (){
     return (
        <> 
-         <header class ="container-fluid cajitaHeader">
+         <header className ="container-fluid cajitaHeader">
             {/* <div class="avatar"></div> */}
             <div className="primero"></div>
-            <div class="conteiner cajaDerecha">
+            <div className="conteiner cajaDerecha">
                <Nav className="prueba"/>
-               <div class="avatar"></div>
+               <div className="avatar"></div>
             </div>
          </header>
        </> 
