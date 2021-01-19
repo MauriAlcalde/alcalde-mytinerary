@@ -1,6 +1,7 @@
-const Cities =()=>{
+import Ciudad from "./Ciudad"
+const Ciudades =()=>{
     return(
-        <div className="cajaCities">Pagina en Construccion</div>
+        <div className="cajaCities"><Ciudad/></div>
     )
 }
-export default Cities
+export default Ciudades

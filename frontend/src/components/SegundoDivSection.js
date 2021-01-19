@@ -8,7 +8,7 @@ function SegundoDiv(){
                     <Link to="/cities"><button type="button" class="btn btn-outline-danger discover">Discover</button></Link>
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
 export default SegundoDiv;
