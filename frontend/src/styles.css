@@ -34,9 +34,8 @@ body{
     justify-content: space-around;
     align-items: center;
     background-image: url("./assets/fondoGrande.jpg");
-    background-size: 100vw 90vh;
+    background-size: 100vw 100vh;
     background-attachment: fixed;
-    /* background-repeat: no-repeat; */
 }
 .contenedorGeneral div{
     margin-top: 2vh;
@@ -63,9 +62,9 @@ body{
     text-align: center;
     color: whitesmoke;
     align-items: flex-end;
-    background-image: url("./assets/imagenavion.jpg");
+    background-image: url("./assets/posibleFoto.jpg");
     background-size:cover;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
     border-radius: 15px;
     height: 100vh;
@@ -78,7 +77,6 @@ body{
     background-color: rgb(247, 126, 105);
     height: 30vh;
     width: 20vw;
-    
     margin-bottom: 3vh;
 }
  footer{
@@ -86,9 +84,33 @@ body{
     justify-content: center;
     align-items: center;
     color: whitesmoke;
-    height: 8vh;
-    border-top: 1.5px solid black;
-    background-color: rgb(71, 151, 175);
+    height: 20vh;
+    font-size: 1.4vw;
+    font-weight: bold;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Titillium Web', sans-serif;
+    text-decoration: none;
+}
+.cajaFooter{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 24, 22, 0.473) ;
+}
+.cajaFooter p{
+    text-decoration: none;
+    color: white;
+}
+.textoFooter{
+    text-decoration: none;
+}
+.textoFooter:hover{
+    text-decoration: none;
 }
 .avatar {
     background-image: url("./assets/icono2.png");
@@ -99,7 +121,7 @@ body{
     width: 20vw;
 }
 .carrusel{
-    margin-bottom: 2vh;
+    margin-bottom: 6vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -211,10 +233,12 @@ li a:hover{
     background-repeat: no-repeat;
     border-radius: 10px;
     box-shadow: 2px 2px 8px black;
-    margin-left: 1vw;    
+    margin-left: 1vw; 
+    transition: 0.3s ease;   
 }
 .imagenCarrusel:hover{
     box-shadow: 7px 7px 15px black;
+    transform: scale(1.03);
 }
 .carousel-control-next-icon{
     margin-left: 2vw !important;
@@ -224,23 +248,25 @@ li a:hover{
     background-color:rgba(103, 132, 194, 0.795);
     width: 81vw;
     padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding-bottom: 1vh;
     text-align: center;
     border-radius: 10px;
     font-family: 'Titillium Web', sans-serif;
     font-weight: bold;
     font-size: 2.5vw !important;
-    margin-top: 10vh !important;
+    margin-top: 12vh !important;
+    margin-bottom: -9vh!important;
 }
 .contenedorFrases {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     margin-bottom: 5vh;
     color: whitesmoke;
     background-color: rgb(247, 241, 241);
+    margin-bottom: 7vh!important;
 }
 .frases1{
     display: flex;
@@ -253,6 +279,7 @@ li a:hover{
     border-radius:0px 30px 30px 0px;
     font-weight: bold;
     font-family: 'Source Code Pro', monospace;
+    margin-top: -3vh!important;
 }
 .frases2{
     align-self: flex-end;
@@ -292,6 +319,7 @@ li a:hover{
     font-family: 'Source Code Pro', monospace;
     text-align: center;
     font-weight: bold;
+    margin-bottom: -3vh;
 }
 .nombreCiudad {
     color: whitesmoke;
@@ -324,7 +352,7 @@ li a:hover{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 70vw;
+    width: 80vw;
     height: 40vh;
     margin-bottom: 5vh;
     text-decoration: none;
@@ -332,6 +360,7 @@ li a:hover{
     box-shadow: 2px 2px 8px black;
     color: white;
     font-size: 3vw;
+    transition: 0.3s ease;
 }
 .cajaCiudad p{
     width: 100%;
@@ -339,7 +368,8 @@ li a:hover{
     font-weight: bold;
 }
 .cajaCiudad:hover{
-    box-shadow: 7px 7px 15px black;
+    box-shadow: 8px 8px 20px black;
+    transform: scale(1.05);
 }
 .cajaCities a:hover{
     text-decoration: none;
@@ -348,7 +378,7 @@ input{
     margin-bottom: 6vh;
     font-size: 1.8vw;
     font-weight: bold;
-    width: 70vw;
+    width: 80vw;
     height: 5vh;
     text-align: center;
     border: none;
@@ -360,4 +390,137 @@ input{
     color: black!important;
     font-size: 5vh;
     font-family: 'Titillium Web', sans-serif;
+}
+
+.cajaItineraries{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    font-size: 5vw;
+    width: 100%;
+    min-height: 100vh;
+}
+.cajaItinerarie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 7vh;
+    text-decoration: none;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 7px 7px 15px black;
+    color: white;
+    font-size: 3vw;
+}
+.cajaItinerarie p{
+    width: 100%;
+    background-color: rgb(221, 107, 87, 0.356);
+    font-weight: bold;
+}
+.itinerary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    width: 80vw;
+    height: 50vh;
+    margin-bottom: 3vh;
+    text-decoration: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px black;
+    font-size: 3vw;
+}
+.notItinerary{
+    background-color: white;
+    color: black!important;
+    font-size: 5vh;
+    font-weight: bold;
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+}
+.cajaItinerary{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.cajaBack{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 60vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
+}
+.cajaImagen{
+    width:30vw;
+    margin-right: 10vw;
+}
+.backToCities{
+    text-decoration: none;
+    position: absolute;
+    border-radius: 20px;
+    background-color: rgba(231, 145, 114, 0.836);
+    font-size: 2vw;
+    font-weight: bold;
+    margin-top:4vh;
+    margin-left: 15vw;
+    padding: 1vw;
+    color: whitesmoke;
+}
+.tituloCities{
+   font-family: 'Titillium Web', sans-serif;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 4vh;
+    margin-top: -2vh;
+}
+.cajaSpinner{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.cajitaSpinner{
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform:translate(-50%,-50%);
+}
+.spinner{
+    width: 100px!important;
+    height: 100px!important;
+    border:10px solid currentColor!important;
+    border-right-color: transparent!important;
+    color:rgb(231, 145, 114)!important;
+}
+.backToHome{
+    text-decoration: none;
+    position: absolute;
+    border-radius: 20px;
+    background-color: rgba(231, 145, 114, 0.836);
+    font-size: 2vw;
+    font-weight: bold;
+    margin-top:2vh;
+    margin-left: 15vw;
+    padding: 1vw;
+    color: whitesmoke;
+}
+.cajaHome{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: 45vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
 }

@@ -1,16 +1,16 @@
-import PrimerDiv from "./PrimerDivSection"
-import SegundoDiv from "./SegundoDivSection"
-import Example from "./TercerDivSection"
+import FirstDiv from "./FirstSection"
+import SecondDiv from "./SecondSection"
+import Example from "./Carousel"
 import Frases from "./Frases"
 function Home(){
+    window.scrollTo(0,0)
     return (
         <div className="contenedorGeneral">
-            <PrimerDiv/>
+            <FirstDiv/>
             <Frases />
-            <SegundoDiv/>
+            <SecondDiv/>
             <div className="tituloCarrusel"><p>Popular Mytineraries</p></div>
-            <div className="container-fluid carrusel"><Example/></div>
-            
+            <div className="container-fluid carrusel"><Example/></div> 
         </div>
     )
 }

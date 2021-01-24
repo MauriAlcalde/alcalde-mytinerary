@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "./styles.css"
 import Header from "./components/Header"
 import Home from "./components/Section"
-import Ciudades from "./components/Cities";
+import Cities from "./components/Cities";
 import Itineraries from "./components/Itineraries";
-/* import Footer from "./components/Footer" */
+ import Footer from "./components/Footer"
 function App() {
   return (
    <> 
@@ -18,11 +18,11 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/cities" component={Ciudades}/>
+        <Route path="/cities" component={Cities}/>
         <Route path="/itineraries/:id" component={Itineraries}/>
         <Redirect to="/"/>
       </Switch>
-      {/* <Footer/> */}
+       <Footer/>
    </Router>
    </> 
   );
