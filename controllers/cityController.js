@@ -24,6 +24,7 @@ const cityControler = {
         })
     },
     oneCity: async (req, res)=>{
+        console.log(req.params)
         const id = req.params.id
         const registro = await City.findOne({_id:id})
         res.json({succes:true, response:registro})

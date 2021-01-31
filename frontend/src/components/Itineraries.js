@@ -2,17 +2,38 @@ import {Link} from "react-router-dom"
 import fotito from "../assets/volver2.jpg"
 import {useEffect, useState} from "react"
 import Itinerary from "./Itinerary"
+import {connect} from "react-redux"
+import itinerariesActions from "../redux/actions/itinerariesActions"
 const Itineraries=(props)=>{
 
     const [itinerary, setItinerary]= useState({})
-
+    const id = props.match.params.id
     useEffect(()=>{
-      const id = props.match.params.id
-      fetch(`http://localhost:4000/api/city/${id}`)
-      .then(response => response.json())
-      .then(data => setItinerary(data.response))
+      var city = props.city.filter(city => city._id === id)
+      setItinerary(city[0])
+      props.getItineraries(id)
       window.scrollTo(0,0)
-    },[])
+    },[id])
+
+    function retornaItineraries () {
+      if (props.itineraries.length === 0){
+        return (
+          <>
+           <div className="itinerary" style= {{
+                    backgroundImage:`url("../assets/imagenGeneral2.jpg")`
+                      }}>
+                    <p className="notItinerary">Oops! We don't have itineraries yet. Make one!</p>
+          </div>
+          </>
+      )
+      }else {
+        return (
+          <>
+          {props.itineraries.map(itinerary =><Itinerary key={itinerary._id} itinerary={itinerary}/>)}
+          </>
+        )
+      }
+    }
 
     return (
       <>
@@ -22,7 +43,7 @@ const Itineraries=(props)=>{
                       }}>
                           <p>{itinerary.name}</p>
           </div>
-          <Itinerary/>
+          {retornaItineraries()}
           <div className="cajaItinerary">
             <Link to="/cities">
               <div className="cajaBack">
@@ -41,4 +62,13 @@ const Itineraries=(props)=>{
       </>
     )
 }
-export default Itineraries
+const mapStateToProps = state =>{
+  return {
+    city: state.citiesR.cities,
+    itineraries: state.itinerariesR.itineraries
+  }
+}
+const mapDispatchToProps = {
+  getItineraries: itinerariesActions.getItineraries
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Itineraries)
