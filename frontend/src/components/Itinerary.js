@@ -12,7 +12,7 @@ const Itinerary =({itinerary})=> {
                     <p className="userName">{itinerary.userName}</p>
                   </div>
                   <div className = "bodyItinerary">
-                    <p className="titulito">{itinerary.tittle}</p>
+                    <p className="titulito">{(itinerary.tittle).toUpperCase()}</p>
                     <div className = "parrafosItinerary">
                       <p className="likes"><i className="fa fa-heart corazon"></i>{itinerary.likes}</p>
                       <p className="duracion">Duration: {itinerary.hours}h</p>
@@ -23,7 +23,7 @@ const Itinerary =({itinerary})=> {
                     </div>
                     <button className="btn btn-secondary botonItinerary" onClick={()=> setVisible(!visible)}>{!visible ? 'View All' : 'View Less'}</button>
                   {visible && (
-                    <h1>Activities and Comments in comming</h1>
+                    <h1>Activities and Comments coming soon</h1>
                   )}
                   </div>
                   <div className = "activities"></div>

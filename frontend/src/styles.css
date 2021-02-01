@@ -552,9 +552,12 @@ input{
 .bodyItinerary{
     /* background-color: lightcoral; */
     width: 60vw;
+    margin-right: 1vw;
 }
 .titulito{
     font-size: 2.9vw;
+    margin-top: 2vh;
+    color: rgb(32, 83, 107);
     /* color: green!important; */
     font-weight: bold;
 }
@@ -586,6 +589,7 @@ input{
 .duracion{
     font-size: 2vw;
     font-weight: bold;
+    color: rgb(35, 117, 155);
     /* color: greenyellow; */
 }
 .likes{
@@ -596,7 +600,7 @@ input{
 .hashtag{
     margin-top: 1vh;
     /* margin-left: 2.5vw; */
-    color: rgb(23, 93, 126);
+    color: rgb(24, 73, 179);
     font-size: 2vw;
     font-weight: bold;
 }
@@ -612,4 +616,6 @@ input{
 }
 .userName{
     font-size: 2vw;
+    font-weight: bold;
+    color: rgba(231, 145, 114, 0.979);
 }
