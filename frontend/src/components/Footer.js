@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom"
 const Footer = ()=>{
     return (
-          <footer style = {{
+          <footer /* style = {{
               backgroundImage: "url('./assets/croacia.jpg')"
-          }}>
+          }} */>
               <div className="cajaFooter">
                   <div>Copyright © 2021 Mauricio Alcalde. All Rights Reserved</div>
                   <div>

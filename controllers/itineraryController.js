@@ -24,7 +24,7 @@ const itineraryController ={
             return res.json({success: false, error: error})
         })
     },
-
+    /* NO LO USO Y NO SE SI LO USARE */
     allItineraries: async (req,res)=>{
 
         const data= await Itinerary.find()       

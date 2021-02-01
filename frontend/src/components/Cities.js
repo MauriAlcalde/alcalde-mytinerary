@@ -3,13 +3,10 @@ import City from "./City"
 import {Spinner} from 'reactstrap'
 import {Link} from "react-router-dom"
 import fotito from "../assets/imagenAvion2.jpg"
-import axios from 'axios'
 import {connect} from "react-redux"
 import cityActions from "../redux/actions/citiesActions"
 
     const Cities = (props) =>{
-
-      console.log(props)
       
     useEffect(()=>{
       props.getCities()

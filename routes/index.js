@@ -11,7 +11,7 @@ router.route("/city/:id")
 .get(cityControler.oneCity)
 
 router.route("/itineraries")
-.get(itineraryController.allItineraries)
+.get(itineraryController.allItineraries) //NO LO USO TODAVIA, NO SE SI LO USARE
 .post(itineraryController.addItinerary)
 
 router.route("/itineraries/:cityId")

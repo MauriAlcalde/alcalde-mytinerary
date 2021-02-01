@@ -1,20 +1,28 @@
 import {Link} from "react-router-dom"
+import {Spinner} from 'reactstrap' //
 import fotito from "../assets/volver2.jpg"
 import {useEffect, useState} from "react"
 import Itinerary from "./Itinerary"
 import {connect} from "react-redux"
 import itinerariesActions from "../redux/actions/itinerariesActions"
-const Itineraries=(props)=>{
+import cityActions from "../redux/actions/citiesActions"
 
-    const [itinerary, setItinerary]= useState({})
+const Itineraries=(props)=>{
     const id = props.match.params.id
+    const [itinerary, setItinerary]= useState({})
+
     useEffect(()=>{
-      var city = props.city.filter(city => city._id === id)
+      if(props.city.length === 0){
+      props.history.push("/cities")
+      window.scrollTo(0,0)}
+      
+      let city = props.city.filter(city => city._id === id)
       setItinerary(city[0])
-      props.getItineraries(id)
+      props.getItineraries(id) 
       window.scrollTo(0,0)
     },[id])
-
+  
+   
     function retornaItineraries () {
       if (props.itineraries.length === 0){
         return (
@@ -49,9 +57,7 @@ const Itineraries=(props)=>{
               <div className="cajaBack">
                       <div className="cajaImagen">
                         <img src={fotito} style={{
-                          width: '35vw',
-                          /* marginRight: '10vw' */
-                          
+                          width: '35vw',                          
                         }} alt="foto" />  
                       </div>
                       <p className="backToCities">Looking for other city? Click Here!</p>
@@ -69,6 +75,7 @@ const mapStateToProps = state =>{
   }
 }
 const mapDispatchToProps = {
-  getItineraries: itinerariesActions.getItineraries
+  getItineraries: itinerariesActions.getItineraries,
+  getCities: cityActions.getCities, //lo iba a usar para solucionar el error del refresh pero no me funciono
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Itineraries)
