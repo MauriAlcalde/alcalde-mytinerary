@@ -19,7 +19,7 @@ const Itinerary =({itinerary})=> {
                       <p>{Array(itinerary.price).fill(<i className="fa fa-money-bill-alt billete"></i>)}</p>
                     </div>
                     <div className="cajaHashtags">
-                    {itinerary.hashtags.map(item=><p className="hashtag">{item}</p>)}
+                    {itinerary.hashtags.map((item,index)=><p key={index + itinerary.tittle} className="hashtag">{item}</p>)}
                     </div>
                     <button className="btn btn-secondary botonItinerary" onClick={()=> setVisible(!visible)}>{!visible ? 'View All' : 'View Less'}</button>
                   {visible && (

@@ -370,7 +370,7 @@ li a:hover{
 }
 .cajaCiudad:hover{
     box-shadow: 8px 8px 20px black;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 .cajaCities a:hover{
     text-decoration: none;

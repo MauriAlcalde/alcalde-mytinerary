@@ -7,7 +7,6 @@ const initialState = {
 function cityReducer(state = initialState, action){
     switch (action.type) {
         case ("GET_CITIES"):
-            console.log("rellene cities")
             return {
                 ...state,
                 cities: action.payload,
