@@ -8,19 +8,19 @@ import itinerariesActions from "../redux/actions/itinerariesActions"
 import cityActions from "../redux/actions/citiesActions"
 
 const Itineraries=(props)=>{
-    const id = props.match.params.id
+    const id = props.match.params.id //ID DE LA URL
     const [itinerary, setItinerary]= useState({})
 
     useEffect(()=>{
       if(props.city.length === 0){
-      props.history.push("/cities")
+      props.history.push("/cities")//LO REDIRECCIONO A CITIES PARA QUE NO ME SALTE ERROR AL HACER REFRESH(LO VOY A CAMBIAR POR UNA FUNCION)
       window.scrollTo(0,0)}
       
-      let city = props.city.filter(city => city._id === id)
-      setItinerary(city[0])
-      props.getItineraries(id) 
+      let city = props.city.filter(city => city._id === id)//FILTRO LA CIUDAD POR EL ID
+      setItinerary(city[0])//MODIFICO EL STATE PROPIO CON LA CIUDAD QUE FILTRE ARRIBA
+      props.getItineraries(id)//PASO EL ID COMO PARAMETRO PARA QUE ME DEVUELVA LOS ITINERARIOS DE LA CIUDAD CORRESPONDIENTE 
       window.scrollTo(0,0)
-    },[id])
+    },[])//ANTES RECIBIA EL ID DE LA LINEA 11 COMO DEPENDENCIA PENSANDO QUE TENIA QUE CAMBIAR DE ACUERDO AL ID DE LA URL
   
    
     function retornaItineraries () {
@@ -32,7 +32,7 @@ const Itineraries=(props)=>{
                       }}>
                     <p className="notItinerary">Oops! We don't have itineraries yet. Make one!</p>
           </div>
-          </>
+          </>//SI NO HAY ITINERARIOS
       )
       }else {
         return (
@@ -68,12 +68,14 @@ const Itineraries=(props)=>{
       </>
     )
 }
+/* MANDO LAS CIUDADES (NO LAS FILTRADAS) Y LOS ITINERARIOS DE ESA CIUDAD A LAS PROPS */
 const mapStateToProps = state =>{
   return {
     city: state.citiesR.cities,
     itineraries: state.itinerariesR.itineraries
   }
 }
+/* MANDO LAS ACTIONS A LAS PROPS PARA QUE EL COMPONENTE PUEDA DESPACHARLAS */
 const mapDispatchToProps = {
   getItineraries: itinerariesActions.getItineraries,
   getCities: cityActions.getCities, //lo iba a usar para solucionar el error del refresh pero no me funciono

@@ -6,12 +6,14 @@ const initialState = {
 
 function cityReducer(state = initialState, action){
     switch (action.type) {
+        /* RELLENO LOS ARRAYS CON LAS CIUDADES QUE ME DEVUELVE LA API */
         case ("GET_CITIES"):
             return {
                 ...state,
                 cities: action.payload,
                 citiesFiltradas: action.payload
             }
+        /* REALIZO EL FILTRO DE LAS CIUDADES UTILIZANDO EL PAYLOAD(INPUTVALUE) Y VOY DEVOLVIENDO ESO AL SEGUNDO ARRAY (MASO MENOS XD) */
         case("FILTER_CITIES") :
         return {
             ...state,

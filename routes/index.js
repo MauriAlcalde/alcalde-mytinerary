@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const cityControler = require("../controllers/cityController")
 const itineraryController= require("../controllers/itineraryController")
+const userController = require ('../controllers/userController')
+const validator = require('../controllers/validator')
 
 router.route("/cities")
 .get(cityControler.allCities)
@@ -19,4 +21,13 @@ router.route("/itineraries/:cityId")
 /* POSIBLEMENTE LOS USE MAS ADELANTE */
 /* .put(itineraryController.upgradeItinerary)
 .delete(itineraryController.deleteitinerary) */
+
+router.route('/signup')
+.post(validator.validateNewAccount, userController.signUp)
+
+router.route('/login')
+.post(userController.logIn)
+
+router.route('/login/ls')
+.post(passport.authenticate('jwt', {session: false}), userController.logFromLStorage)
 module.exports = router
