@@ -24,7 +24,7 @@ const userController = {
                     response: errors.length === 0 && {token, name: newUserSaved.name, pic: newUserSaved.userImage, userName: newUserSaved.userName}})
   },
   
-  logIn: async (req, res) => {
+  signIn: async (req, res) => {
     const {userName, pass} = req.body
     const userExists = await User.findOne({userName: userName})
     if(!userExists){
@@ -38,8 +38,8 @@ const userController = {
     return res.json({success:true, response: {token, name: userExists.name, pic: userExists.userImage, userName: userExists.userName}})
   },
 
-  logFromLStorage: async (req, res) => {
-    res.json({succes: true, response: {token: req.body.token, name: req.user.name, pic: req.user.userImage, userName: req.user.userName}})
+  signFromLStorage: async (req, res) => {
+    res.json({succes: true, response: {token: req.body.token, name: req.user.name, pic: req.user.userImage, userName: req.user.userName}})//REVISAR CLASE DE LOCALSTORAGE PARA ENTENDER BIEN LO QUE HAGO
   }
 } 
 

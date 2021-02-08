@@ -1,7 +1,7 @@
 const Joi = require('joi')
 
 const validator = {
-    validateNewAccount: (req, res, next) => {
+    validateAccount: (req, res, next) => {
       const schema = Joi.object({
         name: Joi.string().trim().required().min(2).messages({
           "string.base": "Should be a type of 'text'",
@@ -15,7 +15,7 @@ const validator = {
           "any.required": "This field is required",
           "string.min": "Must contain at least 2 letters",
         }),
-        userName: Joi.string().trim().required().messages({
+        userName: Joi.string().trim().required().min(4).messages({
           "string.base": "Should be a type of 'text'",
           "string.empty": "This field can't be empty",
           "any.required": "This field is required",
@@ -55,3 +55,4 @@ const validator = {
 }
 
 module.exports = validator
+//REVEER LA CLASE DE NUEVO PARA ENTENDER BIEN

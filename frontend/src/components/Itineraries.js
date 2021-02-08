@@ -78,6 +78,6 @@ const mapStateToProps = state =>{
 /* MANDO LAS ACTIONS A LAS PROPS PARA QUE EL COMPONENTE PUEDA DESPACHARLAS */
 const mapDispatchToProps = {
   getItineraries: itinerariesActions.getItineraries,
-  getCities: cityActions.getCities, //lo iba a usar para solucionar el error del refresh pero no me funciono
+  getCities: cityActions.getCities, //lo iba a usar para solucionar el error del refresh pero no me funciono...por ahora
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Itineraries)

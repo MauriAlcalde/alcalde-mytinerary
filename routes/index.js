@@ -13,7 +13,6 @@ router.route("/city/:id")
 .get(cityControler.oneCity)
 
 router.route("/itineraries")
-.get(itineraryController.allItineraries) //NO LO USO TODAVIA, NO SE SI LO USARE
 .post(itineraryController.addItinerary)
 
 router.route("/itineraries/:cityId")
@@ -22,12 +21,12 @@ router.route("/itineraries/:cityId")
 /* .put(itineraryController.upgradeItinerary)
 .delete(itineraryController.deleteitinerary) */
 
-router.route('/signup')
-.post(validator.validateNewAccount, userController.signUp)
+router.route('/signup')//REVISAR CONCEPTO DE JOI (VALIDATOR)
+.post(validator.validateAccount, userController.signUp)
 
-router.route('/login')
-.post(userController.logIn)
+router.route('/signin')
+.post(userController.signIn)
 
-router.route('/login/ls')
-.post(passport.authenticate('jwt', {session: false}), userController.logFromLStorage)
+router.route('/signin/ls')//REVISAR CONCEPTO DE PASSPORT (CLASE)
+.post(passport.authenticate('jwt', {session: false}), userController.signFromLStorage)
 module.exports = router
