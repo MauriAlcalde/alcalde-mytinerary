@@ -9,24 +9,24 @@ const authActions = {
       if(!response.data.success){
         return response.data
       }
+      console.log (response.data)
       dispatch({type: 'LOG_USER', payload: response.data})
     }
   },
-  logIn: (user) => {
+  signIn: (user) => {
     return async (dispatch, getState) => {
       const response = await axios.post('http://localhost:4000/api/signin', user)
 
-      if(!response.data.success && response){
+      if(!response.data.success){
 
         return response.data
       }
-      console.log(response)
       dispatch({type: 'LOG_USER', payload: response.data})
       
     }
   },
 
-  logInFromLS: (token) => {
+  signInFromLS: (token) => {
     return async (dispatch, getState) => {
       try{
         const response = await axios.post('http://localhost:4000/api/signin/ls', {token}, {
@@ -37,15 +37,15 @@ const authActions = {
         dispatch({type: 'LOG_USER', payload: {response: {...response.data.response}}})
       }catch(err){
         if(err.response.status === 401) {
-          alert('Que tamo haciendo pa?')
+          alert('Que ta haciendo mijo?')
           localStorage.clear()
-          return true
+          return "/"
         }
       }
     }
   },
 
-  logOut: () => {
+  signOut: () => {
     return (dispatch, getState) => {
       dispatch({type: 'LOG_OUT'}) 
     }

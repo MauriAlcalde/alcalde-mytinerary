@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   country: String,
   email: String,
   userImage: String,
-  pass: String,
+  password: String,
   rol: {type: String, default: 'nonadmin'},
 })
 

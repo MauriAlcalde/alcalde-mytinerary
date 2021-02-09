@@ -4,6 +4,10 @@ const cityControler = require("../controllers/cityController")
 const itineraryController= require("../controllers/itineraryController")
 const userController = require ('../controllers/userController')
 const validator = require('../controllers/validator')
+const commentController = require('../controllers/commentsController')
+const likeController = require('../controllers/likesController')
+const passport = require('passport')
+require('../config/passport')
 
 router.route("/cities")
 .get(cityControler.allCities)
@@ -29,4 +33,17 @@ router.route('/signin')
 
 router.route('/signin/ls')//REVISAR CONCEPTO DE PASSPORT (CLASE)
 .post(passport.authenticate('jwt', {session: false}), userController.signFromLStorage)
+
+router.route('/comments')
+.post(passport.authenticate('jwt', {session: false}),commentController.addComment)
+.put(passport.authenticate('jwt', {session: false}),commentController.deleteComment)
+
+router.route('/comments/update')
+.put(passport.authenticate('jwt', {session: false}), commentController.updateComment)
+
+router.route('/likes')
+.post(passport.authenticate('jwt', {session: false}), likeController.like)
+
+router.route('/dislike')
+.post(passport.authenticate('jwt', {session: false}), likeController.dislike)
 module.exports = router
