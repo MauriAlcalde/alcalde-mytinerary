@@ -112,15 +112,18 @@ const SignUp = (props) => {
             </div>
           </form>
           <button className="createAcc" onClick={()=>validateInfo()}>Create Account</button>
+         <div className="cajaGoogle">
+          <Link to="/login"><h5>You already have an account? Log In!</h5></Link>
+          <GoogleLogin className="googleBtn"
+              clientId="547248483540-a1aab858936kt0u19mi5su1qr68qr7mf.apps.googleusercontent.com"
+              buttonText="Create Account with Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
+         </div>
         </div>
-        <Link to="/login"><h5>You already have an account? Log In!</h5></Link>
-        <GoogleLogin className="googleBtn"
-            clientId="547248483540-a1aab858936kt0u19mi5su1qr68qr7mf.apps.googleusercontent.com"
-            buttonText="Create Account with Google"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
+       
         </>
       )
     }

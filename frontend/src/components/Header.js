@@ -1,6 +1,13 @@
-/* import PrimerDiv from "./PrimerDivSection" */
+import { connect } from 'react-redux';
+import authActions from '../redux/actions/authActions';
 import Nav from "./Nav"
-function Header (){
+function Header (props){
+   if (props.loggedUser){
+      var userImage = props.loggedUser.response.pic
+   }else{
+      var userImage = "../assets/icono2.png"
+   }
+   console.log(props.loggedUser)
     return (
        <> 
          <header className ="container-fluid cajitaHeader">
@@ -8,10 +15,17 @@ function Header (){
             <div className="primero"></div>
             <div className="conteiner cajaDerecha">
                <Nav className="prueba"/>
-               <div className="avatar"></div>
+               <div className="avatar" style={{backgroundImage:` url(${userImage})`}}></div>
             </div>
          </header>
        </> 
     )
 }
-export default Header;
+const mapStateToProps= state =>{
+   return {
+     loggedUser: state.authR.loggedUser
+   }
+ }
+
+
+export default connect(mapStateToProps)(Header)

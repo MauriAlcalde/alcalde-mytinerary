@@ -19,7 +19,7 @@ import { useState } from 'react'
 
 function App(props) {
   const [reload, setReload] = useState(false)
-  if(props.loggeduser){
+  if(props.loggedUser){
     var routes =
     <>
       <Switch>

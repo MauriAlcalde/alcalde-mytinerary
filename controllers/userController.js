@@ -6,7 +6,7 @@ const userController = {
   signUp: async (req, res) => {
     var errors = [] //ACA VOY A GUARDAR EL MENSAJE EN CASO DE QUE EXISTA EL USUARIO AL MOMENTO DE REGISTRARSE
     const {name, lastname, userName, country, email, userImage, password, rol} = req.body
-    const userExists = await User.findOne({userName: userName})
+    const userExists = await User.findOne({email: email})
     if(userExists){
       var error = {context: {label: 'email'}, message: 'This email is already in use'}
       errors.push(error)
@@ -18,7 +18,7 @@ const userController = {
         name, lastname, userName, email, userImage, password: passwordHashed, rol, country
       })
       var newUserSaved = await newUser.save()
-      var token = jwt.sign({...newUserSaved}, "NO SOY LA FRASE SECRETA",{})
+      var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY,{})
     }
     return res.json({success: errors.length === 0 ? true : false,
                     errors: errors,

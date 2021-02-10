@@ -10,7 +10,7 @@ const SignIn = (props) => {
       password: ''
     })
     const [errors, setErrors] = useState('')
-
+    const userName = localStorage.getItem('token')
     const readInput =(e)=> {
         const value = e.target.value
         const prop = e.target.name
@@ -22,16 +22,17 @@ const SignIn = (props) => {
     const validateInfo = async () => {
       if(userLogged.email===''||userLogged.password===''){
         alert("All the fields must be filled")
+        return false
       }
+      setErrors([])
       const res = await props.signUser(userLogged)
-      if(!res.succes){
+      if(res && !res.success){
         setErrors(res.response)
       }
-        /* props.signUser(userLogged)
-        alert('Bienvenido') */
+         /* props.signUser(userLogged) */
+       alert(`Bienvenido!`)
       }  
-
-    /* const responseGoogle = async (response)=> {
+    const responseGoogle = async (response)=> {
         if(response.error){
           alert('Ups, something went wrong')
         }
@@ -40,10 +41,10 @@ const SignIn = (props) => {
           password: 'Aa'+response.profileObj.googleId,
         })
         if(res && !response.success){
-          setErrors(response.errors)
+          setErrors([response.errors])
         }
         alert('Bienvenido!')
-      } */
+      }
       
       return(
         <>
@@ -62,21 +63,24 @@ const SignIn = (props) => {
           </div>
       </form>
       <button className="createAcc" onClick={()=>validateInfo()}>Sign In</button>
-      {/* <GoogleLogin className="googleBtn"
-        clientId="547248483540-a1aab858936kt0u19mi5su1qr68qr7mf.apps.googleusercontent.com"
-        buttonText="Log In with Google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-      /> */}
+      <div className="cajaGoogle">
+          <Link to="/signup"><h5>You don't have an account? Sign Up!</h5></Link>
+          <GoogleLogin className="googleBtn"
+          clientId="547248483540-a1aab858936kt0u19mi5su1qr68qr7mf.apps.googleusercontent.com"
+          buttonText="Log In with Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          />
+         </div>
     </div>
-    <Link to="/signup"><h5>You don't have an account? Sign Up!</h5></Link>
         </>
       ) 
 }
 const mapStateToProps = state => {
     return {
-      loggedUser: state.authR.loggedUser
+      loggedUser: state.authR.loggedUser,
+      userName: state.authR.userName
     }
   }
   

@@ -1,5 +1,6 @@
 const initialState = {
-    loggedUser: null
+    loggedUser: null,
+    userName: []
   }
   
   
@@ -11,7 +12,8 @@ const initialState = {
         localStorage.setItem('image', action.payload.response.pic)
         return {
           ...state,
-          loggedUser: action.payload
+          loggedUser: action.payload,
+          userName: action.payload.response.name
         }
       case 'LOG_OUT':
         localStorage.clear()
