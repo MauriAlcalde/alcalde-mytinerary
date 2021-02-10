@@ -1,10 +1,10 @@
 
 const Activity = ({activity})=>{
-    const {image, title} = activity
+    const {actImg, actTittle} = activity
     return (
       <div className="activity">
-        <img src={image} alt=""/>
-        <p>{title}</p>
+        <img src={actImg} alt=""/>
+        <p>{actTittle}</p>
       </div>
     )
   }

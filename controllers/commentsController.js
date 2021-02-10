@@ -1,11 +1,11 @@
 const Itinerary = require('../models/Itinerary')
-
+ 
 const commentController = {
   addComment: (req,res) => {
     const id = req.body.id
     Itinerary.findOneAndUpdate(
       {_id: id},
-      {$push: {comments: {userPic: req.user.image, userName: req.user.username, comment: req.body.comment, }}},
+      {$push: {comments: {userPic: req.user.userImage, userName: req.user.userName, comment: req.body.comment, }}},
       {new: true}
     )
     .then(comment => res.json({success: true, response: comment}))
