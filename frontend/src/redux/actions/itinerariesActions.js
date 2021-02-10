@@ -12,6 +12,7 @@ const itinerariesActions = {
       }
     }
   },
+  
   addComment: (comment, token, id) => {
     return async (dispatch, getState) => {
       try {
@@ -67,7 +68,9 @@ const itinerariesActions = {
           headers: {
             Authorization: `Bearer ${token}`
           }
+          
         })
+        console.log(response.data.response)
         dispatch({type: 'LIKE', payload: response.data})
       }catch(error){
         alert('Error mg no se xq xd')

@@ -26,8 +26,6 @@ function App(props) {
         <Route exact path="/" component={Home}/>
         <Route path="/cities" component={Cities}/>
         <Route path="/itineraries/:id" component={Itineraries}/>
-        <Route path="/signUp" component={SignUp}/>
-        <Route path="/login" component={SignIn}/>
         <Redirect to="/"/>
       </Switch>
     </>

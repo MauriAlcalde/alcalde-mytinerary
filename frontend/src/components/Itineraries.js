@@ -10,7 +10,6 @@ import cityActions from "../redux/actions/citiesActions"
 const Itineraries=(props)=>{
     const id = props.match.params.id //ID DE LA URL
     const [itinerary, setItinerary]= useState({})
-
     useEffect(()=>{
       if(props.city.length === 0){
       props.history.push("/cities")//LO REDIRECCIONO A CITIES PARA QUE NO ME SALTE ERROR AL HACER REFRESH(LO VOY A CAMBIAR POR UNA FUNCION)
@@ -21,7 +20,7 @@ const Itineraries=(props)=>{
       props.getItineraries(id)//PASO EL ID COMO PARAMETRO PARA QUE ME DEVUELVA LOS ITINERARIOS DE LA CIUDAD CORRESPONDIENTE 
       window.scrollTo(0,0)
     },[])//ANTES RECIBIA EL ID DE LA LINEA 11 COMO DEPENDENCIA PENSANDO QUE TENIA QUE CAMBIAR DE ACUERDO AL ID DE LA URL
-  
+    console.log(props.itineraries)
    
     function retornaItineraries () {
       if (props.itineraries.length === 0){

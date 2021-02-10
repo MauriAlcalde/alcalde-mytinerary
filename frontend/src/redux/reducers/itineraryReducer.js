@@ -9,6 +9,7 @@ const itineraryReducer = (state = initialState, action) => {
         ...state,
         itineraries: action.payload
       }
+
     case 'LIKE':
       return {
         ...state,

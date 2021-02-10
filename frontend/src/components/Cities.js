@@ -80,4 +80,3 @@ const mapDispatchToProps = {//ACTIONS
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)
-/* REVISAR CONCEPTO DE CONNECT Y QUE HACE */

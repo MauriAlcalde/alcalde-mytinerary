@@ -27,7 +27,7 @@ const itineraryController ={
 
     allById: async (req,res)=>{
         const id = req.params.cityId
-        const registro = await Itinerary.find({cityId:id})
+        const registro = await Itinerary.find({cityId:id}).populate("cityId")
         res.json({succes:true, response:registro})
 
     }

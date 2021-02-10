@@ -14,18 +14,18 @@ const Itinerary =(props)=> {
     }
   },[])
 
-  const sendComment = async (e) => {
+  const sendComment = async () => {
     await props.addComment(comment, props.loggedUser.response.token, props.itinerary._id)
     setComment('')
   }
 
   const addLike =()=> {
-    props.like(props.itinerary_id, props.loggedUser.response.token)
+    props.like(props.itinerary._id, props.loggedUser.response.token)
   }
   const dislike =()=> {
-     props.dislike(props.itinerary_id, props.loggedUser.response.token)
+     props.dislike(props.itinerary._id, props.loggedUser.response.token)
   }
-    
+
     return (
         <>
          <div className="cadaItinerary" >
@@ -54,8 +54,7 @@ const Itinerary =(props)=> {
                 </div>
            </div>
            <div>
-           <button className="btn btn-secondary botonItinerary" onClick={()=> setVisible(!visible)}>{!visible ? 'View All' : 'View Less'}</button>
-                  {visible && (
+                  {visible ? (
                     <div className="btnContent">
                     <h4>Activities!</h4> 
                     <div className="activities">
@@ -73,7 +72,8 @@ const Itinerary =(props)=> {
                       </div>
                       </div>
                     </div>
-                  )}
+                  ): window.scrollTo(0,100)}
+                 <button className="btn btn-secondary botonItinerary" onClick={()=> setVisible(!visible)}>{!visible ? 'View All' : 'View Less'}</button>
            </div>
          </div>
         </>

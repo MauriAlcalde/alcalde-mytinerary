@@ -3,7 +3,7 @@ const initialState = {
     citiesFiltradas: [],
 
 }
-
+ 
 function cityReducer(state = initialState, action){
     switch (action.type) {
         /* RELLENO LOS ARRAYS CON LAS CIUDADES QUE ME DEVUELVE LA API */
@@ -26,3 +26,4 @@ function cityReducer(state = initialState, action){
       }
       
     export default cityReducer
+
