@@ -772,11 +772,11 @@ input{
     border-radius: 6px;
   }
   .activities p::-webkit-scrollbar-thumb{
-    background:rgb(231, 145, 114);
+    background:rgb(207, 92, 92);
     border-radius: 5px;
   }
   .activities p::-webkit-scrollbar-thumb:hover {
-    background: #2B71BA;
+    background: #39a2d3;
   }
   
   .activities::-webkit-scrollbar{
@@ -831,12 +831,15 @@ input{
     font-size: 1.5vw;
     margin: 0;
     font-weight: bold;
+    color: rgb(44, 118, 230);
   }
   
   .comment p {
     padding: 0vh 1vw;
     margin: 0;
     font-size: 3vw;
+    margin-right: 3vw;
+    /* color: rgb(72, 135, 228) */
   }
   
   .pComment {
@@ -848,14 +851,14 @@ input{
       justify-content: space-around;
   }
   .iconitosModif{
-    color: rgb(100, 160, 250);
+    color: rgb(44, 118, 230);
   }
   .inputModif{
       width: 50vw;
   }
   .iconitosComment{
-    color: rgb(100, 160, 250);
-    font-size: 3vw;
+    color: rgb(44, 118, 230);
+    font-size: 2.5vw;
     margin-left: 1vw;
   }
   .inputComment{
@@ -864,6 +867,20 @@ input{
       margin-right: 2vw;
   }
   .enter{
-    color: rgb(100, 160, 250);
+    color: rgb(44, 118, 230);
     font-size: 3vw; 
+  }
+  .tituloComment{
+      margin-top: 4vh;
+      padding-top: 1vh;
+      padding-bottom: 1vh;
+      font-size: 2.5vw;
+      font-weight: bold;
+      border-radius: 20px;
+      background-color: rgba(92, 159, 197, 0.856);
+      width: 78vw;
+  }
+  .tituloAct{
+      color: rgb(207, 92, 92);
+      font-weight: bold;
   }

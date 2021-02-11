@@ -79,7 +79,7 @@ const Itinerary =(props)=> {
                         return <Activity key={activity.title} activity={activity}/>
                       })}
                     </div>
-                    <h4>Leave a comment!</h4>
+                    <h4 className="tituloComment">LEAVE A COMMENT!</h4>
                     <div className="comments">
                       {props.itinerary.comments.map(comment => {
                         return <Comment key={comment._id} comment={comment} id={props.itinerary._id} cityId={props.id}/>})}
