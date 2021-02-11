@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Swal from 'sweetalert2'
+
 const itinerariesActions = {
   /* HAGO EL PEDIDO A LA API RECIBIENDO EL ID DE LA CIUDAD COMO PARAMETRO Y CONCATENANDOLO AL FINAL PARA QUE DEPENDIENDO DE LA CIUDAD QUE SEA ME DEVUELVA LOS ITINERARIOS DE ESA CIUDAD */
   getItineraries: (id) => {
@@ -8,7 +10,13 @@ const itinerariesActions = {
         const data = await response.json()
         dispatch({type: 'GET_ITINERARIES', payload: data.response})
       }catch(error){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -24,7 +32,13 @@ const itinerariesActions = {
         dispatch({type: 'COMMENT', payload: response.data})
         return true
       }catch(error){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -40,7 +54,13 @@ const itinerariesActions = {
         dispatch({type: 'COMMENT', payload: response.data})
       }
       catch(error){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -56,7 +76,13 @@ const itinerariesActions = {
         dispatch({type: 'COMMENT', payload: response.data})
       }
       catch(error){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -73,7 +99,13 @@ const itinerariesActions = {
         console.log(response.data.response)
         dispatch({type: 'LIKE', payload: response.data})
       }catch(error){
-        alert('Error mg no se xq xd')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -89,7 +121,13 @@ const itinerariesActions = {
         console.log(response)
         dispatch({type: 'LIKE', payload: response.data})
       }catch(error){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   }

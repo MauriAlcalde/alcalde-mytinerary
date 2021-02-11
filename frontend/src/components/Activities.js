@@ -2,10 +2,16 @@
 const Activity = ({activity})=>{
     const {actImg, actTittle} = activity
     return (
-      <div className="activity">
-        <img src={actImg} alt=""/>
-        <p>{actTittle}</p>
+      <>
+      <div className="cajaActivity">
+      <div className="activity" style={{
+        backgroundImage:`url(${actImg})`
+      }}>
+   
       </div>
+      <div className="tituloAct"><p>{actTittle}</p></div>
+      </div>
+      </>
     )
   }
   export default Activity

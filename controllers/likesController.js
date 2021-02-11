@@ -4,8 +4,6 @@ const likeController = {
   like: async (req, res) => {
     const itineraryId = req.body.id
     const userId = req.user._id
-    console.log(req.body)
-    console.log (itineraryId)
     await Itinerary.findOneAndUpdate(
       {_id: itineraryId},
       {$addToSet: {likes: userId}},

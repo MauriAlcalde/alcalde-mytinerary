@@ -3,6 +3,8 @@ import Activity from './Activities'
 import { connect } from "react-redux"
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import Comment from './Comment'
+import Swal from 'sweetalert2'
+
 const Itinerary =(props)=> {
   const [visible, setVisible] = useState(false)
   const [comment, setComment] = useState('')
@@ -15,6 +17,16 @@ const Itinerary =(props)=> {
   },[])
 
   const sendComment = async () => {
+    if(comment===""){
+      Swal.fire({
+        position: 'top',
+        icon: 'warning',
+        title: "You can't send an empty comment",
+        showConfirmButton: false,
+        timer: 1500
+      })
+      return false
+    }
     await props.addComment(comment, props.loggedUser.response.token, props.itinerary._id)
     setComment('')
   }
@@ -42,8 +54,14 @@ const Itinerary =(props)=> {
                     <div className = "parrafosItinerary">
                     <p className="likes">
                       {props.itinerary.likes.includes(liked) 
-                      ?<i className="fa fa-heart corazon" onClick={props.loggedUser && dislike}></i>
-                      :<i className="fa fa-heart corazon" onClick={props.loggedUser ? addLike : ()=> alert('You have to be logged to like it')} ></i>}{props.itinerary.likes.length}</p>
+                      ?<i className="fa fa-heart corazon" style={{cursor: 'pointer'}} onClick={props.loggedUser && dislike}></i>
+                      :<i className="fa fa-heart corazon" style={{cursor: 'pointer'}} onClick={props.loggedUser ? addLike : ()=> Swal.fire({
+                        position: 'top',
+                        icon: 'warning',
+                        title: 'You have to be logged to like it',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })} ></i>}{props.itinerary.likes.length}</p>
                       {/* <p className="likes"><i className="fa fa-heart corazon"></i>{props.itinerary.likes}</p> */}
                       <p className="duracion">Duration: {props.itinerary.hours}h</p>
                       <p>{Array(props.itinerary.price).fill(<i className="fa fa-money-bill-alt billete"></i>)}</p>
@@ -54,9 +72,8 @@ const Itinerary =(props)=> {
                 </div>
            </div>
            <div>
-                  {visible ? (
+                  {visible && (
                     <div className="btnContent">
-                    <h4>Activities!</h4> 
                     <div className="activities">
                       {props.itinerary.activities.map(activity => {
                         return <Activity key={activity.title} activity={activity}/>
@@ -67,12 +84,18 @@ const Itinerary =(props)=> {
                       {props.itinerary.comments.map(comment => {
                         return <Comment key={comment._id} comment={comment} id={props.itinerary._id} cityId={props.id}/>})}
                       <div className="inputDiv">
-                        <i className="fas fa-paper-plane enter" id={props.itinerary._id} onClick={props.loggedUser ? sendComment :()=>alert('You must be logged to send a comment')}></i>
-                        <input type="text" id="inputComment" placeholder={!props.loggedUser ? "You need to be logged to comment!" : "Leave your comment"} value={comment}disabled={!props.loggedUser && true}onChange={(e)=>setComment(e.target.value)}/>
+                        <input type="text" id="inputComment" className="inputComment" placeholder={!props.loggedUser ? "You need to be logged to comment!" : "Leave your comment"} value={comment}disabled={!props.loggedUser && true}onChange={(e)=>setComment(e.target.value)}/>
+                        <i className="fas fa-paper-plane enter" style={{cursor: 'pointer'}} id={props.itinerary._id} onClick={props.loggedUser ? sendComment :()=>Swal.fire({
+                        position: 'top',
+                        icon: 'warning',
+                        title: 'You must be logged to send a comment',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })}></i>
                       </div>
                       </div>
                     </div>
-                  ): window.scrollTo(0,100)}
+                  )}
                  <button className="btn btn-secondary botonItinerary" onClick={()=> setVisible(!visible)}>{!visible ? 'View All' : 'View Less'}</button>
            </div>
          </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 const authActions = {
   createUser: (newUser)=> {
@@ -21,7 +21,13 @@ const authActions = {
         }
         dispatch({type: 'LOG_USER', payload: response.data})
       }catch(err){
-        alert('Oops something went wrong, try again later!')
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: 'Oops something went wrong, try again later!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
   },
@@ -38,7 +44,13 @@ const authActions = {
         }catch(err){
           // Evalua el estado del error 401 (unauthorized)
           if(err.response.status === 401) {
-            alert("You are not allowed to access this page")
+            Swal.fire({
+              position: 'top',
+              icon: 'error',
+              title: "You are not allowed to access this page",
+              showConfirmButton: false,
+              timer: 1500
+            })
             localStorage.clear()
             return true
           }

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import authActions from '../redux/actions/authActions'
 import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
+import Swal from 'sweetalert2'
 
 const SignIn = (props) => {
     const [userLogged, setUserLogged] = useState({
@@ -21,7 +22,13 @@ const SignIn = (props) => {
       }
     const validateInfo = async () => {
       if(userLogged.email===''||userLogged.password===''){
-        alert("All the fields must be filled")
+        Swal.fire({
+          position: 'top',
+          icon: 'warning',
+          title: "All the fields must be filled",
+          showConfirmButton: false,
+          timer: 1500
+        })
         return false
       }
       setErrors([])
@@ -30,11 +37,24 @@ const SignIn = (props) => {
         setErrors(res.response)
       }
          /* props.signUser(userLogged) */
-       alert(`Bienvenido!`)
+         Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Welcome!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }  
     const responseGoogle = async (response)=> {
         if(response.error){
-          alert('Ups, something went wrong')
+          Swal.fire({
+            position: 'top',
+            icon: 'error',
+            title: 'Ups, something went wrong',
+            showConfirmButton: false,
+            timer: 1500
+          })
+
         }
         const res = await props.signUser({
           email: response.profileObj.email,
@@ -43,7 +63,13 @@ const SignIn = (props) => {
         if(res && !response.success){
           setErrors([response.errors])
         }
-        alert('Bienvenido!')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Welcome!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
       
       return(

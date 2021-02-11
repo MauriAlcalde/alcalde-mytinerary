@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import authActions from "../redux/actions/authActions"
 import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login';
+import Swal from 'sweetalert2'
 
 const SignUp = (props) => {
     const [countries, setCountries] = useState([])
@@ -32,7 +33,14 @@ const SignUp = (props) => {
         if(newUser.name === '' || newUser.lastname === '' || newUser.email === '' 
         || newUser.userName === '' || newUser.password === '' 
         || newUser.userImage === '' || newUser.country === ''){
-          alert("All the fields can't be empty")
+          Swal.fire({
+            position: 'top',
+            icon: 'warning',
+            title: "All the fields can't be empty",
+            showConfirmButton: false,
+            timer: 1500
+          })
+
         }
     const response = await props.createUser(newUser)
         if(response && !response.success){
@@ -42,13 +50,26 @@ const SignUp = (props) => {
           })
           setErrors(errorsInput)
         }else {
-          alert('Usuario Creado!')
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'New User Saved!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+ 
         }
       }
 
     const responseGoogle =async (response)=> {
         if(response.error){
-          alert('Ups, something went wrong')
+          Swal.fire({
+            position: 'top',
+            icon: 'error',
+            title: 'Ups, something went wrong',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
     const res = await props.createUser({
           userName: response.profileObj.givenName,
@@ -60,10 +81,22 @@ const SignUp = (props) => {
           country: 'Argentina'
         })
         if(res && !response.success){
-          alert(res.errors[0].message)
+          Swal.fire({
+            position: 'top',
+            icon: 'error',
+            title: res.errors[0].message,
+            showConfirmButton: false,
+            timer: 1500
+          })
           return false
         }
-        alert('Usuario Creado!')
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'New User Saved!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
       return(
         <>

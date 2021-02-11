@@ -3,29 +3,28 @@ const jwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const User = require('../models/User')
 
-
-// Cuando realice un pedido a una ruta protegida
+//CUANDO REALIZO UN PEDIDO A UNA RUTA QUE ESTA PROTEGIDA
 module.exports = passport.use(new jwtStrategy({
-  // extrae el token de la peticion que va a venir en la cabecera
+  // VA A EXTRAER EL TOKEN QUE VIENE EN LA CABECERA
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  // interpretalo a la luz de mi frase secreta
+  // LO INTERPRETA USANDO LA CLAVE
   secretOrKey: process.env.SECRET_KEY
-  // Una vez que ya lo tengas interpretado, decodificado e interpretado en el payload
+  //CUANDO YA LO TENGAS, INTERPRETALO EN EL PAYLOAD
 }, (payload, done) => {
-  // buscame el usuario con este id
+  // ENCONTRA EL USUARIO POR EL ID
   User.findById(payload._doc._id)
   .then(user => { 
-  // Si no encuentra el usuario 
+  // SINO
     if(!user){
-      // No tengo error(null), no tengo usuario
+      // NO HAY ERROR, NO HAY USER
       return done(null, false)
     }else{
-      // No tengo error, si tengo usuario
+      //NO HAY ERROR, SI HAY USER
       return done(null, user)
     }
   })
   .catch(error => {
-  // Error en la promesa => Tengo error y no tengo usuario
+  // SI FALLA TENGO ERROR Y NO TENGO USER
     return done(error, false)
   })
 }))

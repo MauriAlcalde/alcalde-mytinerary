@@ -8,7 +8,7 @@ const Comment =(props)=> {
     const [updatedComment, setUpdatedComment] = useState('')
     const [loggedUser, setLoggedUser] = useState('')
 
-    const edit =(e)=> {
+    const edit =()=> {
         setVisible(!visible)  
         setUpdatedComment(comment)
       }
@@ -33,17 +33,19 @@ const Comment =(props)=> {
             <h5>{userName}:</h5>
             {visible ?
             <>
-            <input type="text" onChange={(e)=>setUpdatedComment(e.target.value)} value={updatedComment} 
+            <input type="text" className="inputModif" onChange={(e)=>setUpdatedComment(e.target.value)} value={updatedComment} 
             style={{borderRadius: '30px', border: 'none', outline: 'none', textAlign: 'center'}}/>
-            <i class="fas fa-paper-plane" style={{cursor: 'pointer', marginLeft: '0.5rem'}} onClick={updateComment}></i>
-            <i class="fas fa-ban" style={{cursor: 'pointer', marginLeft: '0.5rem'}} onClick={()=>setVisible(!visible)}></i>
+            <div className="iconosModif">
+              <i class="fas fa-paper-plane iconitosModif" style={{cursor: 'pointer', marginLeft: '0.5rem'}} onClick={updateComment}></i>
+              <i class="fas fa-ban iconitosModif" style={{cursor: 'pointer', marginLeft: '0.5rem'}} onClick={()=>setVisible(!visible)}></i>
+            </div>
             </>
             : <div className="pComment">
             <p>{comment}</p>
             {loggedUser === props.comment.userName && 
             <div>
-            <i class="fas fa-edit"  style={{marginRight: '0.4rem', cursor: 'pointer'}} onClick={edit}></i>
-            <i class="fas fa-trash-alt" style={{cursor: 'pointer'}} onClick={deleteComment}></i>
+            <i class="fas fa-edit iconitosComment"  style={{marginRight: '0.4rem', cursor: 'pointer'}} onClick={edit}></i>
+            <i class="fas fa-trash-alt iconitosComment" style={{cursor: 'pointer'}} onClick={deleteComment}></i>
             </div>
             }
           </div>
